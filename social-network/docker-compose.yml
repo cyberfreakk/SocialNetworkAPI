@@ -1,0 +1,83 @@
+version: '3.4'
+
+services:
+  userservice:
+    image: ${DOCKER_REGISTRY-}userservice
+    build:
+      context: .
+      dockerfile: UserService/Dockerfile
+    environment:
+      SQL_DB: "Data Source=sqlserverdb;Initial Catalog=AuthDB;User Id=sa;Password=pass@123"
+      Mongo_DB: "mongodb://db:27017"
+      DB_NAME: "FriendsDb"
+    depends_on:
+      - sqlserverdb
+      - db
+      - apigateway
+    container_name: user-service
+
+
+  friendsservice:
+    image: ${DOCKER_REGISTRY-}friendsservice
+    build:
+      context: .
+      dockerfile: FriendsAPI/Dockerfile
+    environment:
+      Mongo_DB: "mongodb://db:27017"
+      DB_NAME: "FriendsDb"
+    depends_on:
+      - db
+      - apigateway
+    container_name: friend-service
+
+
+  postservice:
+    image: ${DOCKER_REGISTRY-}postservice
+    build:
+      context: .
+      dockerfile: PostService/Dockerfile
+    environment:
+      Mongo_DB: "mongodb://db:27017"
+      DB_NAME: "PostDB"
+    depends_on:
+      - db
+      - apigateway
+    container_name: post-service
+
+
+  commentservice:
+    image: ${DOCKER_REGISTRY-}commentservice
+    build:
+      context: .
+      dockerfile: CommentService/Dockerfile
+    environment:
+      Mongo_DB: "mongodb://db:27017"
+      DB_NAME: "PostDB"
+    depends_on:
+      - db
+      - apigateway
+    container_name: comment-service
+
+
+  db:
+    image: mongo
+    ports:
+      - "27017:27017"
+
+  sqlserverdb:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    ports:
+      - "1433:1433"
+    environment:
+      - SA_PASSWORD=pass@123
+      - ACCEPT_EULA=Y
+
+
+
+  apigateway:
+    image: ${DOCKER_REGISTRY-}apigateway
+    build:
+      context: .
+      dockerfile: ApiGateway/Dockerfile
+    ports:
+      - "9010:80"

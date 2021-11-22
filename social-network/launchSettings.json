@@ -1,0 +1,16 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "serviceActions": {
+        "commentservice": "StartDebugging",
+        "db": "StartWithoutDebugging",
+        "friendsservice": "StartDebugging",
+        "postservice": "StartDebugging",
+        "sqlserverdb": "StartWithoutDebugging",
+        "userservice": "StartDebugging"
+      },
+      "commandVersion": "1.0"
+    }
+  }
+}

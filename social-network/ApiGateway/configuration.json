@@ -1,0 +1,299 @@
+{
+  "ReRoutes": [
+    {
+      "DownstreamPathTemplate": "/api/Auth/register-admin",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "user-service",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/register-admin",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Auth/register",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "user-service",
+          "port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/register",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Auth/login",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "user-service",
+          "port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/login",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/Auth/profile/{UserName}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "user-service",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/profile/{UserName}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Auth/profile/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "user-service",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/profile",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Auth/changePassword/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "user-service",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/changePassword/",
+      "UpstreamHttpMethod": [ "Put" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Auth/logout/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "user-service",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/logout",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+
+
+
+
+
+
+
+    {
+      "DownstreamPathTemplate": "/api/Post",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "post-service",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/post",
+      "UpstreamHttpMethod": [ "Post" ]
+     
+    },
+    {
+      "DownstreamPathTemplate": "/api/Post/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "post-service",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/post/{id}",
+      "UpstreamHttpMethod": [ "Get", "Put", "Delete" ],
+      
+    },
+    {
+      "DownstreamPathTemplate": "/api/Post/user/{userName}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "post-service",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/post/user/{userName}",
+      "UpstreamHttpMethod": [ "Get" ]
+     
+    },
+
+
+
+
+
+    {
+      "DownstreamPathTemplate": "/api/Comment",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "comment-service",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/comment",
+      "UpstreamHttpMethod": [ "Post" ]
+     
+    },
+    {
+      "DownstreamPathTemplate": "/api/Comment/{postId}/{commentid}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "comment-service",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/comment/{postId}/{commentid}",
+      "UpstreamHttpMethod": [ "Get", "Put", "Delete" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Comment/postId/{postid}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "comment-service",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/comment/postId/{postid}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+
+
+
+
+
+    {
+      "DownstreamPathTemplate": "/api/Friend/acceptrequest/{friendName}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "friend-service",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/acceptrequest/{friendName}",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Friend/deleterequest/{friendName}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "friend-service",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/deleterequest/{friendName}",
+      "UpstreamHttpMethod": [ "Delete" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Friend/deletefriend/{friendName}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "friend-service",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/deletefriend/{friendName}",
+      "UpstreamHttpMethod": [ "Delete" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Friend/sendrequest/{friendName}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "friend-service",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/sendrequest/{friendName}",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Friend/getfriendlist",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "friend-service",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/getfriendlist",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Friend/getfriendrequest",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "friend-service",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/getfriendrequest",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Friend/isfriend/{friendName}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "friend-service",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/isfriend/{friendName}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Friend/getnumberoffriends",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "friend-service",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/getnumberoffriends",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Friend/getnumberofrequests",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "friend-service",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/getnumberofrequests",
+      "UpstreamHttpMethod": [ "Get" ]
+    }
+
+  ],
+
+  "JWT": {
+    "ValidAudience": "user",
+    "ValidIssuer": "global",
+    "Secret": "Globallogic_security_key_for_authentication"
+  },
+
+  "GlobalConfiguration": {}
+}
